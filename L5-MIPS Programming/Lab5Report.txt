@@ -1,0 +1,36 @@
+Kevin Duong – keduong 
+Fall 2016 CMPE12 
+Lab Section: 01J (Tu,Thur 7-9PM) TA:Chandrahas 
+Due: November 20th, 2016 
+Lab 5: Intro to UNO32 and MIPs 
+
+Purpose: 
+The Objective of this lab is to transition from LC-3 assembly language to MIPs and program hardware.
+In this case, we will be working with the Uno32, as per requirement of the class.
+Procedure: 
+I began this lab by trying to understand what was given to us in the instuctions written up in the 
+assignment page. I started part 1 by looking at instruction manuals provided by the digilent company, 
+as well as many other Chipkit guides that explained the mapping of the chipkit as well as the basic
+i/o board. When I understood that much, I looked on various university pages for intro to MIPs 
+as well as the MIPs instruction set as I found MIPs while similar still very distinct to the LC-3 
+coding language. Max and the TAs did do their part in aiding the transition, though I found that they
+would rather us use our own tools to try our hand at this project. After much intensive research about 
+which ports correspond to which LEDs, I was able to correctly match the 8, 9, 10, and 11 bits of PORTD to 
+Switches 1, 2, 3, and 4. I applied the same logic to match portd bits 5,6,7 with buttons 2,3,4, and 
+don't quite understand why but a separate port f bit 1 corresponds to button 1. I was able to match
+these bits and bitshift and mask them to then send to porte, which corresponds to the LEDs 1-8.
+For the second part of the lab, I tried to follow the procedure and set up another .s file that 
+first took in a 4bit value from the switches (0-15) and then add one so that it would be a value from
+1-16. Then, I turned on my LED1, jumped to a mydelay subroutine in which I wasted time by running 
+through a large base delay multiplied by the value from my switches (to further slow the delay). When
+the value from mydelay hit 0, I would turn off LED1, and cycle through the rest of the LEDs. I couldn't
+quite fully implement this into my code as I ran into difficulty properly bouncing the LED pattern. Thus,
+I had no coverage of running into the last bit (256) and turning around to cycle the other way. 
+
+Conclusion:  
+The sheer jump in difficulty from this lab from the previous was insane. I understand this lab was ment
+to be an intro to MIPs, so we should expect difficulties but the second part of making the LEDs walk and
+delay seemed a little to complex for my to grasp. I'm sure with even more time I would be able to implement
+it but given the time that I gave it, regretably less than I could have given it, I was not able to fully
+complete part 2 of this lab. Part 1 was still fun in that we finally are working with hardware, but I 
+hope that the next group of CE12 students are given more guidance towards tackling the MIPs language.

@@ -1,0 +1,21 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	array                   313A
+//	checkChar               3110
+//	decrypt                 3122
+//	decryptLoop             3124
+//	encrypt                 3118
+//	encryptLoop             311A
+//	flipBit                 312E
+//	input                   3109
+//	msg1                    3003
+//	msg2                    305E
+//	msg3                    3099
+//	neg48                   314E
+//	neg68                   3150
+//	neg69                   314F
+//	newln                   3001
+//	output                  3133
+//	outputLoop              3134
+//	pos20                   3151
+//	start                   30F7

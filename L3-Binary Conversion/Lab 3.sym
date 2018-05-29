@@ -1,0 +1,27 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	ASCII_MINUS             3058
+//	ASCII_ONE               3057
+//	ASCII_X                 3059
+//	ASCII_ZERO              3056
+//	COMPLEMENT              3033
+//	DIGIT                   3023
+//	END                     3052
+//	ENTER                   3055
+//	EXIT                    30EB
+//	EXIT_TEST               301A
+//	GOOD_INPUT              3036
+//	GREET                   305A
+//	GREETING                3000
+//	INPUT                   3097
+//	INPUT_CHECK             3012
+//	MAIN_LOOP               3002
+//	MASK                    3137
+//	MASK_LOOP               303A
+//	MULTIPLICATION          302C
+//	NEGATIVE_INPUT          3031
+//	PRINT_ONE               304A
+//	PRINT_ZERO              3042
+//	READ                    300C
+//	REGISTERS               3004
+//	VALID                   30C5

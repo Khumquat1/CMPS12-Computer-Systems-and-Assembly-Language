@@ -1,0 +1,59 @@
+----------------------------------------------------
+  Kevin Duong - keduong
+  Lab Section: 01J (Tu,Thur 7-9PM) TA:
+  Due: October 2nd, 2016
+----------------------------------------------------
+
+Title:
+Lab 1: Intro to Logic with Multimedia Logic
+
+Purpose:
+The objective for this lab is to learn how to use the Multimedia Logic application in Windows to do schematic entry and simulation. This is done through exposure to the free MML schematic entry and simulation tool.
+
+Procedure:
+Part A, Warm-up, of the lab was done through a very brief tutorial of MML, where we are to become familiar with the switch, led, and text tools, as well as the palette tool in general. The overall objective is to connect a switch (input) to a LED (output).
+Part B, Playing with Numbers, of the lab involves observing a given circuit which takes user-inputted binary numbers in 4 switches (0000,0001, ...) and display the numbers on a 7-segment LED tool. We are then tasked with cleaning the circuit up to make it more visibly accessible.
+Part C, Truth tables to Gates, gave us a truth table with the goal of instructing us to design a circuit that includes the logic applicable to the logic table. The procedure I took to formulate a logic statement is explained in the Algorithm portion of the report.
+Part D of the lab, titled Guessing Game, is done by designing a mini game in which a random number generator is used to generate a random number #0-3 (00,01, 10, 11). The user then has the option to flip two switches to guess the generated number, and prompted with either a red LED for a wrong guess, or a green LED for a correct one.
+The circuit is fairly simple, with the most complex part being the process of testing for equality between the user's guess and the RNG's output. This was achieved by using two XNOR gates which return outputs of 1 if and only if identical 0's and 1's are achieved. Then, a simple AND gate confirms if both XNOR gates are identical. 
+Finally, two LEDs determine if the two inputs match, or differ.
+
+Algorithms and other data: 
+The only algorithms involved in this lab is utilizing Disjuntive Normal Form. This was mentioned in the procedure, but more in depth has follows.
+The table given:
+-------------------------------
+IN[2] | IN[1] | IN[0]| Output |
+  0   |   0   |   0  |    1   |*
+  0   |   0   |   1  |    1   |*
+  0   |   1   |   0  |    0   |
+  0   |   1   |   1  |    1   |*
+  1   |   0   |   0  |    0   |
+  1   |   0   |   1  |    0   |
+  1   |   1   |   0  |    1   |*
+  1   |   1   |   1  |    0   |
+-------------------------------
+In order to implement a circuit to satisfy this table, I used Disjuntive Normal Form (DNF), also called Sum of Products, to write down a logic statement. Only the rows with a 1 value were taken into regard, thus are marked.
+The logic statement, with the tilde(~) representing "not", the multiplictive sign (*) and addition sign (+) representing "and" and "or" respectively.  IN[2], IN[1],IN[0] will also be regarded as X,Y,Z.
+~(X*Y*Z) + ~(X*Y)*Z + ~X*Y*Z + X*Y*~Z
+With this logic statement, I built a circuit accordingly.
+
+Challenges:
+As mentioned above, this lab was fairly simple and straight forward. The most challenging part was setting up the logic equivalency test for part D, but after playing around with XOR and XNOR gates the rest of the circuit was easy.
+
+Other Questions:
+Think about how you would make the digit display if you didn’t have one. Write out how you would approach doing so.
+Without the 7-segment digit display, a similar output could be represented through LEDs, however the resulting output would still be in binary, i.e 0110.
+To pursue this circuit, I would just connect the buttons to LEDs.
+Make some sort of guess on how that random number generator works? How can things be really random in a computer with logic gates being so, well, logical?
+My guess is that RNG's run through "random" math algorithms that pick numbers from sequences that seem random but are more like complex and uncommon sequences. It seems like a computer cannot truly generate a random number being that computers rely on logic to function.
+Again, I'm assuming that the computer just generates a predetermined but very uncommon sequences a picks "random" number from them.
+
+Conclusion and Extra info:
+This lab was a very nice introduction to Logic Gates and MML. Prior to this, my only understanding logic from my Discrete Math (CMPE16), so it was nice to reapply what I learned in that course for this class. The MML program is without a doubt a very useful resource for experimenting with circuits and get a better understanding of logic gates.
+This lab overall gave me a sense of using circuitry to apply logic statements, a practice that I have not done before. I think the tutorial file could have been a little more user friendly, as it did not do much to explain many of the other tools we needed to use to complete the lab, such as the AND, OR, and XOR gates.
+
+
+
+
+
+

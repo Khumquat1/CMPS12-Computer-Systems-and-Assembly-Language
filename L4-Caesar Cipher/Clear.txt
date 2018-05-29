@@ -1,0 +1,106 @@
+// CS 1A Lab 5 Framework
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// input methods------------------------------------------------------------------------------------
+
+// getKeyLetter()
+// pre: string of size one
+// post: returns key letter char from index 0 of the string
+char getKeyLetter()
+{
+   char KeyLetter;
+   string input;
+   do{
+      cout << "Please enter a SINGLE letter to act as the key: ";
+      getline(cin,input);
+   } while(input.length() != 1); // do-while to only accept good input (single char)
+   KeyLetter = input[0];
+   return KeyLetter;
+}
+
+// getString()
+// pre: String of size >= 4
+// post: returns Key phrase string 
+string getString()
+{
+   string theString;
+   do{
+      cout << "Please enter a phrase or sentence, at least 4 characters : \n";
+      getline (cin,theString);
+   }  while(theString.length() <= 3); // do-while to only accept good input (>=4)
+   return theString;
+}  
+
+// processing methods-------------------------------------------------------------------------------
+
+// maskLetter
+// pre: User-inputted string(phrase) and key letter (target)
+// post: returns new string copied from theString but replaced all instances of key letter with "-".
+string maskLetter(string theString, char keyLetter)
+{
+   string out;
+   for(int i =0;i<theString.length();++i){
+      if(theString[i] != keyLetter){
+         out += theString[i];
+      }
+      else out +='-';
+   }
+   return out;
+}
+
+// removeLetter
+// pre: User-inputted string(phrase) and key letter (target)
+// post: returns new string copied from theString but removed all instances of key letter.
+string removeLetter(string theString, char keyLetter)
+{
+   string out;
+   for(int i =0;i<theString.length();++i){
+      if(theString[i] != keyLetter)
+         out += theString[i];
+   }
+   return out;
+}
+
+// countKey
+// pre: User-inputted string(phrase) and key letter (target)
+// post: returns amount of instances of key letter in string
+int countKey(string theString, char keyLetter) 
+{
+   int counter = 0;
+   for(int i=0; i<theString.length(); i++){
+      if(theString[i] == keyLetter) counter++;
+   }
+   return counter;
+}
+
+// main client -------------------------------------------------------------------------------------
+int main()
+{  
+   // variables
+   string theString;
+   string maskedString;
+   string reducedString;
+   int stringCount;
+   char keyLetter;
+   
+   // assigning values to the variables
+   keyLetter = getKeyLetter();                           // get KeyLetter
+   theString = getString();                              // get phrase/string
+   maskedString = maskLetter(theString, keyLetter);      // new masked String with "-"
+   reducedString = removeLetter(theString, keyLetter);   // new reduced string without keyLetter
+   stringCount = countKey(theString, keyLetter);         // key letter count in theString
+   
+   // print messages
+   cout << "\nThe string with '" << keyLetter << "' masked:\n"<< maskedString << "."<<endl;
+   cout << "\nThe string with '" << keyLetter << "' removed:\n"<< reducedString << "."<<endl;
+   cout << "\nFrequency of '" << keyLetter << "' in String: "<< stringCount << ".\n"<<endl;
+   
+   return 0;
+}  
+
+
+
+

@@ -1,0 +1,71 @@
+Kevin Duong – keduong 
+Fall 2016 CMPE12 
+Lab Section: 01J (Tu,Thur 7-9PM) TA:Chandrahas 
+Due: November 7th, 2016 
+Lab 4: Caesar Cipher
+Purpose: 
+The Objective of this lab is to apply basic understanding of the LC-3 assembly language, subroutines,
+two dimensional arrays, and saving data into labels to program a caesar cipher program.
+Procedure: 
+I began this lab by trying to understand what was given to us in the instuctions written up in the 
+assignment page. I understand how arrays work and can easily apply them to program a crytographic 
+code in higher languages like C or Java, but I was at a complete loss on how to even approach this
+in assembly. As such, I broke down the lab to individual parts and devised a flow chart based on the
+components I figured would be necessary. I realized that some of the parts I had previously already 
+worked with, such as reading input from the user through ASCII arithmetic. With that in mind, I took 
+part of my code from my Lab 3: Decimal converter and manipulated it so that it would work in this lab's 
+setting, i.e. getting the option, cipher, and string from the user. As for the array, 
+I decided to go with a ROW MAJOR system, in which a size 400 array was built with .blkw where the two rows 
+were divided with 0-199 and 200-400 respectively. The next step was to assess how I was going to do the
+actual encryption/ decryption portion of the lab. At this point of the lab, I honestly had little 
+idea on what to do so I decided to lurk on Piazza and apply what my peers were providing, as well as 
+consulting with the textbook to have an idea on memory placement with arrays. While this did help, I 
+found that I stil was not 100% sure how complete the lab until I did more research on arrays in LC-3, and
+furthermore decided to code this entire project in C. Afterwards, I took the components in C and did my best
+to find the LC-3 equivalent. As such, my program contains some C elements such as STRLEN and roughly 
+converted boolean statements to form my attempts at for loops. The part that needed more work and lots
+of scribbles on paper was deciding how the ranges worked for each input. We have the options of characters 
+from A-Z as well as a-z, which all have their own ASCII values. I had to write my program in a way that I 
+could isolate which value belonged to which group, as well as account for the fact that sometimes the
+cipher would knock off the char out of bounds (i.e. Z + 1) but I figured that it is not that hard to 
+get back into bounds by subtracting/adding 26 depending on decryption/ encryption call. This will be 
+more explained in the next section. Overall, working with subroutines made this project much more
+transparent for me as I related them to method calling in C and Java. By relating them, I think I 
+was ultimately able to finish this lab.
+Challenges/ Algorithms: 
+The most prevalent challenge with this lab is the fact that I had very minimal experience with the 
+LC-3 language. Before taking CMPE12, I’ve never even heard of it. I have prior knowledge of Java and C, 
+along with some understanding of logic gates, which did aid in the completion of this lab, but overall I 
+found it very difficult to get started on this lab. Because the language is foreign, I found that using 
+relating LC-3 assembly to JAVA/C tremendously helped. I also found that using the flow chart 
+to piece by piece approach the final product came in very handy as I ended up having a bit of pseudo code
+as well as an idea of the range system with the ASCII values before even starting the actual 
+LC-3 editor. Another major addition to my code that I add even in other coding languages is plenty of 
+comments. With comments, I find it very easy to follow where I am in the code, what I am doing at that 
+point, and what needs to be done afterwards. After adding some lab sections, referring to the textbook,  
+and putting many hours to complete this task, I could complete the lab. The difficult parts included 
+finding out how to approach converting the user input, which was overcome by learning about masks, 
+and getting the code to overall perform as intended which overall took trial and error and vigorous 
+usage of comments. In terms of algorithms, the one I think it most important is finding out how to
+rotate the values. I found out how to do this by playing with the cipher program I wrote in C, which 
+showed me that to rotate, you treat the character as its position in the (1-26) spectrum. In terms of 
+assembly, you have to take that a step further and relate it to ASCII, realizing that (A-Z) is range of
+69-90 and (a-z) has a range of 97 - 122. Both of these ranges are still length 26, so it's not that hard
+to think of the shift. After you treat each char as a letter, you decide your next act based on the operation.
+If we are to encrypt, you rotate right by adding the cipher to the char's value. If the value falls out
+of the original range, you simply just subtract 26 to get right back on the spectrum. Similarly, with 
+decryption you rotate left by subtracting the cipher and adding 26 if you fall out of bounds. Again, 
+this concept isn't that hard to realize, but the difficult part is finding out the value the char falls
+under without cycling through the entire ASCII library. This can be remedied by simply subtracting the 
+first value of each range and seeing if the value is negative, positive, or zero. Based on the min and max
+of each range, you can categorize each char as belonging to which range, so that only letters are shifted
+while other symbols are left untouched, as per the lab requirements.
+Conclusion:  
+This was probably the hardest coding assignment I’ve taken on so far in my time at UCSC, which passes 
+lab 3 as the 2nd hardest. Assembly language is such a pain in the neck. While it is slightly interesting 
+to see that a such a simple function of shifting a character in an array could take so much effort in the LC-3 
+language. This lab required lots of setup but overall it was doable with all the effort and putting all the
+pieces together. In reference, my C version of this code was 109 lines with 10 minutes of coding and minimal
+editing, while my assembly code was 469 lines with days of editing. It's projects like this that challenge my
+interest in Computer Science and programming, but I'm glad that I still get the satisfaction of completeing
+the project, even though it was hair-pulling to debug. 

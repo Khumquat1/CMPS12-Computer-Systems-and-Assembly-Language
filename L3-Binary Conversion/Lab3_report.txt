@@ -1,0 +1,44 @@
+Kevin Duong – keduong 
+Fall 2016 CMPE12 
+Lab Section: 01J (Tu,Thur 7-9PM) TA:Chandrahas 
+Due: October 23th, 2016 
+Lab 3: Decimal Converter
+Purpose: 
+The Objective of this lab is to apply basic understanding of the LC-3 assembly language to program a 
+working decimal to binary converter. This includes usage of registers and system calls.
+Procedure: 
+I began this lab by designing a flowchart heavily influenced by the one supplied to us. This meant that I 
+began the program by checking user input. The three options, excluding input “X” I will address later, 
+expected were either a hyphen “- “, a number 0-9, or a line feed (enter). If a hyphen was detected, a 
+register would be set to 1, meaning the decimal at hand is negative. If the input was a digit, the digit is 
+then converted into a two’s complement binary integer by first subtracting the Asci value 48, then 
+multiplying the result by 10. If a LF input is determined, the program goes about in two options, either 
+go directly to the Mask loop if the register assigned with checking for negative input was 0, or finding 
+the digit’s two’s complement if the digit was negative i.e. inverting then adding one to the value. At the 
+Mask loop, the user’s input in binary form is compared (AND’d) to each of the 16 locations of a Mask 
+through loops. If the result of the AND was a “0”, the resulting bit that would be printed to the screen is 
+“0”. The only other scenario is “1”, which would expectedly lead to a printed “1”.  The program then is 
+tasked to loop through prompting the user for more numbers until the user inputs a command to stop 
+the code “X”. 
+Challenges/ Algorithms: 
+The most prevalent challenge with this lab is the fact that I had no prior interaction of any form with the 
+LC-3 language. Before taking CMPE12, I’ve never even heard of it. I have prior knowledge of Java and C, 
+along with some understanding of logic gates, which did aid in the completion of this lab, but overall I 
+found it very difficult to get started on this lab. Because the language is new to me, I found that using 
+TRAP service routines were easier than using the direct call, which caused most of the people to whom I 
+consulted with very confused. I also found that using the flow chart to piece by piece approach the final 
+product came in very handy as I ended up having a bit of pseudo code before even starting the actual 
+LC-3 editor. Another major addition to my codes that I add even in other coding languages is plenty of 
+comments. With comments, I find it very easy to follow where I am in the code, what I am doing at that 
+point, and what needs to be done afterwards. After adding some lab sections, referring to the textbook, 
+and putting many hours to complete this task, I could complete the lab. The difficult parts included 
+finding out how to approach converting the user input, which was overcome by learning about masks, 
+and getting the code to overall perform as intended which overall took trial and error and vigorous 
+usage of comments.
+Conclusion:  
+This was probably the hardest coding assignment I’ve taken on so far in my time at UCSC. It’s interesting 
+to see that a such a simply function of converting decimal numbers to binary numbers could take so 
+much effort in the LC-3 language. When compared to Java or C, the LC-3 takes a multitude of more lines 
+for essentially a 10-20 line code. Overall, it does feel very fulfilling to have finished this lab, but I do not 
+look forward to coding in LC-3 again.
+

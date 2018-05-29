@@ -1,0 +1,39 @@
+
+Kevin Duong - keduong
+Lab Section: 01J (Tu,Thur 7-9PM) TA:Chandrahas
+Due: October 9th, 2016
+Title:
+Lab 2: Adding and Subtracting
+
+Purpose:
+The objective for this lab is to use our understanding of sequential and combinational logic and apply them together to create a system that allows us to add or subtract a sequence of numbers. For simplicity’s sake, we will be using additive inverse instead of designing a separate circuit specifically dedicated to finding the difference in the sequence.
+
+Procedure:
+In order to complete this lab, I divided the summer into several parts strung out on several pages. The different components replied on one another to give a user-friendly overview page, where inputs and the display module are located. The summer is broken up into more or less 4 parts: the register, input, 6-bit adder, and inverter. How I approached assembling these items are as follows.
+       Register-
+The register was constructed in 6-bits. In doing so, it is made up of 6 D Flip-flops that were taken from the example flip flop given to us. The clear lines of the flip-flops and the clocks are all joined together on two different respective momentary switches. The CLR switch by default is on 1, but needs to be pressed in order to set the flip-flops to 0, effectively clearing the storage and making way for new values. The clock switch lets data actually be saved, being until the button is pressed the value of the flip-flops do not change. The outputs of the flip-flops read the stored bits, while being fed inputs from the 6-bit adder. 
+       Input-
+The input keypad takes in a hexadecimal value which is stored onto flip-flops and then read by a 7segment LED. The input I used was given to us in the examples
+       6-Bit Adder-
+My 6-bit adder is made up of 6 copied and pasted 1-bit adders. The adders essentially take two bit values and add them, resulting in two values: the sum and the carry. In order to make this a 6-bit adder, the carry values are carried from one adder to another, with the first carry value on the first 1-bit adder being default 0, unless the desired operation is subtraction which in that case would prompt a signal from the inverter to invert the number and add one by giving an initial carry value. The resulting sums are sent to the register to be displayed on the 7 segment LEDs.
+       Inverter-
+In order to do subtraction, we save time by not designing a separate circuit and instead just using the 6-bit adder but with additive inverse. To do this, we must invert the 4-bit number and add one to the bit. The inverter does just that with 4 XOR gates, switching the binary value to its flipped form when the invert switch is switched to the 1 position. This also sends a signal to the 6-bit adder to start with an initial carry value, effectively adding one to the value. As the lab instructions pointed out, the inverter could be done using a 2 to 1 multiplexer, but taking in consideration the size of the circuit using discrete gates was not any harder.
+       
+Algorithms and other data: 
+No particular special algorithm was needed to construct this lab, other than perhaps the concept of the 6-bit adder. To being with the 1-bit full adder is just two XOR gates, two AND gates, and a OR gate paired with two value inputs and one carry input to result in one sum and one carry output. As the lab only specifies to account for 6-bits, a total of 2^6 values can be accounted for, from 00 to 3F (dec 0- 63).
+
+Challenges:
+This lab was considerably more difficult than Lab 1 in that it was much more demanding in terms of understanding of logic gates and components. On top of that, there is also a need for understanding of n-bit numbers and how important it is to consistently keep track of the least significant bit. If one were to lose track of which signal represented which bit, the lab would be much harder to complete as the Register, Inverter, and 6-bit Adder all required each bit to be taken in at precisely the right location. This also applied to setting up the 7-segment LED display. To account for this, I left a multitude of comments as well as LEDs both for the purpose of troubleshooting and debugging when the circuits didn’t work out the way they were supposed to.
+
+Other Questions:
+Discuss issues you had building the circuit. Describe what you added to the minimum specifications to make debugging easier. 
+       As mentioned in the challenges section, the circuit itself made it very easy to get the wiring mixed up and get incorrect inputs/outputs. This was addressed by using LEDs and a plethora of labels to ensure that the circuit had each bit going where it needed to go, in order of least significance.
+What happens when you subtract a larger number from a smaller number? Does the result make sense? Your 7 segment display might not. 
+	Subtracting a larger number from a smaller number causes the circuit to go backwards in terms of how many digits are available in a 6-bit circuit. For example, since there are only available values 00- 3F, subtracting 01 from 0 would result in 3F, though it makes sense in terms of understanding the capacity of n-bit circuits, the decimal answer of 0-1 = 63 makes no sense.
+	
+What happens when you add two numbers that won’t fit in 6 bits? You will need to add several times to do this as you only have 4-bit input.
+	When you add two numbers that won’t fit 6-bits, the program loops around again as discussed in the previous question. Again, with the 6-bit range of 00 – 3F, adding 01 to 3F would result in 00.
+
+Conclusion and Extra info:
+This lab was much more difficult and if not for attendance in the lab as well as considerable research in what each of the MML logic components do (ground, plus, Flip-Flop, Mux), I don’t think this lab is doable. As I mentioned previously, compared to this Lab 1 was a walk in the park. While Lab 1 could have been completed with general knowledge of logic gates, this lab required a more thorough understanding of sequential and combinational logic. While it was much more challenging, it was also more satisfying to complete, especially the circuit is very easy to mess up wiring with and deliver bits to the wrong locations.  
+

@@ -1,0 +1,32 @@
+Kevin Duong – keduong 
+Fall 2016 CMPE12 
+Lab Section: 01J (Tu,Thur 7-9PM) TA:Chandrahas 
+Due: December 2nd, 2016 
+Lab 6: Decimal Converter
+
+Purpose: 
+The Objective of this lab is to apply our understanding of the MIPs instruction set and essentially
+repeat the function of our Lab3.
+
+Procedure: 
+I began this lab by trying to understand what was given to us in the instuctions written up in the 
+assignment page. A deviation from Lab3, which was in the LC-3 assembly language, was that MIPs and
+the UNO32 is, as the name suggests, 32 bit and not 16. This meant that the majority the code I was
+to transcribe from LC-3 to Uno32 had twice the amount of bits to work with, and that the output
+was expected to be 16 bit as well. Another difference is that this assignment did not require i/o
+interaction as the number to be converted was already stored in memory at inNumericString. This also
+meant that the output was to be stored into outBinaryString, instead of to console. The programming 
+aspect was mainly the same, meaning that this lab was primarily bit shifting and masking to compare
+a given input value to 0x80000000 and print one for a match otherwise zero. While I essentially had
+the concept understood (inherent in my lab3 completion) the mips language was a little too complex 
+to apply for this lab. I was unable to get a functioning code, though I feel like the error that is
+preventing my code from running is a simple memory reading/ writing error.
+
+Conclusion:  
+Personally, I feel that my understanding of MIPs is disappointing and feel responsibile for not putting 
+in more effort for this lab. I feel that assembly language is a tough beast to overcome and when it comes
+to patience for this kind of content I lack disipline. At the same time, I feel like more online
+resources can be made available to the students of CMPE12, as labs where TAs have a limited amount of 
+time as well as limited MSI sessions do supplement the class content but being able to work on getting
+a better understanding of the course through online research feels like it would also be very 
+beneficial to a better experience in this class.
